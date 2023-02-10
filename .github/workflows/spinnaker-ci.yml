@@ -10,7 +10,7 @@ env:
   TAG_FILE: "tagfile.txt"
   BOM_DIR: ".boms"
   REDIS: "redis-cluster:v2"
-  DISTROLESS: "distroless/static:nonroot"
+  DISTROLESS: "distroless:nonroot"
   
   
 
@@ -81,6 +81,7 @@ jobs:
         docker login -u ${{ secrets.DOCKER_USER}} -p ${{ secrets.DOCKER_PASSWD}} ${NEW_REGISTRY_URL}
         docker pull gcr.io/distroless/static:nonroot
         docker tag gcr.io/distroless/static:nonroot ${NEW_REGISTRY_URL}${DISTROLESS}
+        docker images
         docker push ${NEW_REGISTRY_URL}${DISTROLESS}
         
       #  docker pull gcr.io/kubernetes-spinnaker/redis-cluster:v2
