@@ -11,6 +11,7 @@ env:
   BOM_DIR: ".boms"
   REDIS: "redis-cluster:v2"
   DISTROLESS: "distroless:nonroot"
+  KUBE_RBAC_PROXY: "kube-rbac-proxy:v0.13.1"
   
   
 
@@ -80,9 +81,13 @@ jobs:
         echo ${{ secrets.DOCKER_PASSWD}} 
         docker login -u ${{ secrets.DOCKER_USER}} -p ${{ secrets.DOCKER_PASSWD}} ${NEW_REGISTRY_URL}
         docker pull gcr.io/distroless/static:nonroot
+        docker pull gcr.io/kubebuilder/kube-rbac-proxy:v0.13.1
+      
         docker tag gcr.io/distroless/static:nonroot ${NEW_REGISTRY_URL}${DISTROLESS}
+        docker tag gcr.io/kubebuilder/kube-rbac-proxy:v0.13.1 ${NEW_REGISTRY_URL}${KUBE_RBAC_PROXY}
         docker images
         docker push ${NEW_REGISTRY_URL}${DISTROLESS}
+        docker push ${NEW_REGISTRY_URL}${KUBE_RBAC_PROXY}
         
       #  docker pull gcr.io/kubernetes-spinnaker/redis-cluster:v2
       #  docker tag gcr.io/kubernetes-spinnaker/redis-cluster:v2 ${NEW_REGISTRY_URL}${REDIS}
