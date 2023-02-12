@@ -78,9 +78,9 @@ jobs:
     - name: 02-3-同步镜像到阿里云镜像仓库
       run: |
         docker login -u ${{ secrets.DOCKER_USER}} -p ${{ secrets.DOCKER_PASSWD}} ${NEW_REGISTRY_URL}
-        docker pull gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/controller:v0.40.2@sha256:dc7bc7d6607466b502d8dc22ba0598461d7477f608ab68aaff1ff4dedaa04f81
-        docker tag gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/controller:v0.40.2 registry.cn-beijing.aliyuncs.com/k8s-learning/controller:v0.40.2
-        docker push registry.cn-beijing.aliyuncs.com/k8s-learning/controller:v0.40.2
+        #docker pull gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/controller:v0.40.2@sha256:dc7bc7d6607466b502d8dc22ba0598461d7477f608ab68aaff1ff4dedaa04f81
+        #docker tag gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/controller:v0.40.2 registry.cn-beijing.aliyuncs.com/k8s-learning/controller:v0.40.2
+        #docker push registry.cn-beijing.aliyuncs.com/k8s-learning/controller:v0.40.2
         
         docker pull gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/webhook:v0.40.2@sha256:6b8aadbdcede63969ecb719e910b55b7681d87110fc0bf92ca4ee943042f620b
         docker tag gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/webhook:v0.40.2 registry.cn-beijing.aliyuncs.com/k8s-learning/webhook:v0.40.2
