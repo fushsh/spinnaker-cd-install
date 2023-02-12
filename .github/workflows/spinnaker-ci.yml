@@ -78,70 +78,11 @@ jobs:
     - name: 02-3-同步镜像到阿里云镜像仓库
       run: |
         docker login -u ${{ secrets.DOCKER_USER}} -p ${{ secrets.DOCKER_PASSWD}} ${NEW_REGISTRY_URL}
-        docker pull gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/controller:v0.40.2
-        docker tag gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/controller:v0.40.2 registry.cn-beijing.aliyuncs.com/k8s-learning/controller:v0.40.2
-        docker push registry.cn-beijing.aliyuncs.com/k8s-learning/controller:v0.40.2
+        docker pull gcr.io/tekton-releases/github.com/tektoncd/triggers/cmd/eventlistenersink:v0.21.0@sha256:10605e3af3cf534e10734ea684c94520299c26b29b9dfb67669f7b01a70147dd
+        docker tag gcr.io/tekton-releases/github.com/tektoncd/triggers/cmd/eventlistenersink:v0.21.0 registry.cn-beijing.aliyuncs.com/k8s-learning/tekton-triggers-eventlistenersink:v0.21.0
+        docker push registry.cn-beijing.aliyuncs.com/k8s-learning/tekton-triggers-eventlistenersink:v0.21.0
         
-        docker pull gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/webhook:v0.40.2
-        docker tag gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/webhook:v0.40.2 registry.cn-beijing.aliyuncs.com/k8s-learning/webhook:v0.40.2
-        docker push registry.cn-beijing.aliyuncs.com/k8s-learning/webhook:v0.40.2
-        
-        docker pull gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/kubeconfigwriter:v0.40.2
-        docker tag gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/kubeconfigwriter:v0.40.2 registry.cn-beijing.aliyuncs.com/k8s-learning/kubeconfigwriter:v0.40.2
-        docker push registry.cn-beijing.aliyuncs.com/k8s-learning/kubeconfigwriter:v0.40.2
-        
-        docker pull gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/git-init:v0.40.2
-        docker tag gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/git-init:v0.40.2 registry.cn-beijing.aliyuncs.com/k8s-learning/git-init:v0.40.2
-        docker push registry.cn-beijing.aliyuncs.com/k8s-learning/git-init:v0.40.2
-        
-        docker pull gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/entrypoint:v0.40.2
-        docker tag gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/entrypoint:v0.40.2 registry.cn-beijing.aliyuncs.com/k8s-learning/entrypoint:v0.40.2
-        docker push registry.cn-beijing.aliyuncs.com/k8s-learning/entrypoint:v0.40.2
-        
-        docker pull gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/nop:v0.40.2
-        docker tag gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/nop:v0.40.2 registry.cn-beijing.aliyuncs.com/k8s-learning/nop:v0.40.2
-        docker push registry.cn-beijing.aliyuncs.com/k8s-learning/nop:v0.40.2
-        
-        docker pull gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/imagedigestexporter:v0.40.2
-        docker tag gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/imagedigestexporter:v0.40.2 registry.cn-beijing.aliyuncs.com/k8s-learning/imagedigestexporter:v0.40.2
-        docker push registry.cn-beijing.aliyuncs.com/k8s-learning/imagedigestexporter:v0.40.2
-        
-        docker pull gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/pullrequest-init:v0.40.2
-        docker tag gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/pullrequest-init:v0.40.2 registry.cn-beijing.aliyuncs.com/k8s-learning/pullrequest-init:v0.40.2
-        docker push registry.cn-beijing.aliyuncs.com/k8s-learning/pullrequest-init:v0.40.2
-        
-        docker pull gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/workingdirinit:v0.40.2
-        docker tag gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/workingdirinit:v0.40.2 registry.cn-beijing.aliyuncs.com/k8s-learning/workingdirinit:v0.40.2
-        docker push registry.cn-beijing.aliyuncs.com/k8s-learning/workingdirinit:v0.40.2
-        
-        docker pull gcr.io/google.com/cloudsdktool/cloud-sdk
-        docker tag gcr.io/google.com/cloudsdktool/cloud-sdk registry.cn-beijing.aliyuncs.com/k8s-learning/cloud-sdk
-        docker push registry.cn-beijing.aliyuncs.com/k8s-learning/cloud-sdk
-        
-        docker pull gcr.io/tekton-releases/github.com/tektoncd/triggers/cmd/controller:v0.21.0
-        docker tag gcr.io/tekton-releases/github.com/tektoncd/triggers/cmd/controller:v0.21.0 registry.cn-beijing.aliyuncs.com/k8s-learning/controller:v0.21.0
-        docker push registry.cn-beijing.aliyuncs.com/k8s-learning/controller:v0.21.0
-        
-        docker pull gcr.io/tekton-releases/github.com/tektoncd/triggers/cmd/webhook:v0.21.0
-        docker tag gcr.io/tekton-releases/github.com/tektoncd/triggers/cmd/webhook:v0.21.0 registry.cn-beijing.aliyuncs.com/k8s-learning/webhook:v0.21.0
-        docker push registry.cn-beijing.aliyuncs.com/k8s-learning/webhook:v0.21.0
-        
-        docker pull gcr.io/tekton-releases/github.com/tektoncd/triggers/cmd/interceptors:v0.21.0
-        docker tag gcr.io/tekton-releases/github.com/tektoncd/triggers/cmd/interceptors:v0.21.0 registry.cn-beijing.aliyuncs.com/k8s-learning/interceptors:v0.21.0
-        docker push registry.cn-beijing.aliyuncs.com/k8s-learning/interceptors:v0.21.0
-        
-        docker pull gcr.io/tekton-releases/github.com/tektoncd/triggers/cmd/eventlistenersink:v0.21.0
-        docker tag gcr.io/tekton-releases/github.com/tektoncd/triggers/cmd/eventlistenersink:v0.21.0 registry.cn-beijing.aliyuncs.com/k8s-learning/eventlistenersink:v0.21.0
-        docker push registry.cn-beijing.aliyuncs.com/k8s-learning/eventlistenersink:v0.21.0
-        
-        docker pull gcr.io/tekton-releases/github.com/tektoncd/results/cmd/api:v0.3.0
-        docker tag gcr.io/tekton-releases/github.com/tektoncd/results/cmd/api:v0.3.0 registry.cn-beijing.aliyuncs.com/k8s-learning/api:v0.3.0
-        docker push registry.cn-beijing.aliyuncs.com/k8s-learning/api:v0.3.0
-        
-        docker pull gcr.io/tekton-releases/github.com/tektoncd/results/cmd/watcher:v0.3.0
-        docker tag gcr.io/tekton-releases/github.com/tektoncd/results/cmd/watcher:v0.3.0 registry.cn-beijing.aliyuncs.com/k8s-learning/watcher:v0.3.0
-        docker push registry.cn-beijing.aliyuncs.com/k8s-learning/watcher:v0.3.0
-    
+      
       
       #  docker pull gcr.io/kubernetes-spinnaker/redis-cluster:v2
       #  docker tag gcr.io/kubernetes-spinnaker/redis-cluster:v2 ${NEW_REGISTRY_URL}${REDIS}
