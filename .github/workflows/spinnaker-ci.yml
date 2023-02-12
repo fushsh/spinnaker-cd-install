@@ -78,7 +78,7 @@ jobs:
     - name: 02-3-同步镜像到阿里云镜像仓库
       run: |
         docker login -u ${{ secrets.DOCKER_USER}} -p ${{ secrets.DOCKER_PASSWD}} ${NEW_REGISTRY_URL}
-        docker pull gcr.io/tekton-releases/github.com/tektoncd/triggers/cmd/eventlistenersink:v0.21.0@sha256:10605e3af3cf534e10734ea684c94520299c26b29b9dfb67669f7b01a70147dd
+        docker pull gcr.io/tekton-releases/github.com/tektoncd/triggers/cmd/eventlistenersink:v0.21.0
         docker tag gcr.io/tekton-releases/github.com/tektoncd/triggers/cmd/eventlistenersink:v0.21.0 registry.cn-beijing.aliyuncs.com/k8s-learning/tekton-triggers-eventlistenersink:v0.21.0
         docker push registry.cn-beijing.aliyuncs.com/k8s-learning/tekton-triggers-eventlistenersink:v0.21.0
         
