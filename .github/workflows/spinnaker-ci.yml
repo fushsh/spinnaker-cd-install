@@ -78,13 +78,13 @@ jobs:
     - name: 02-3-同步镜像到阿里云镜像仓库
       run: |
         docker login -u ${{ secrets.DOCKER_USER}} -p ${{ secrets.DOCKER_PASSWD}} ${NEW_REGISTRY_URL}
-        docker pull registry.k8s.io/ingress-nginx/controller:v1.4.0
-        docker tag registry.k8s.io/ingress-nginx/controller:v1.4.0 registry.cn-beijing.aliyuncs.com/k8s-learning/ingress-nginx-controller:v1.4.0
-        docker push registry.cn-beijing.aliyuncs.com/k8s-learning/ingress-nginx-controller:v1.4.0
+        docker pull gcr.io/tekton-releases/github.com/tektoncd/dashboard/cmd/dashboard:v0.39.0
+        docker tag gcr.io/tekton-releases/github.com/tektoncd/dashboard/cmd/dashboard:v0.39.0 registry.cn-beijing.aliyuncs.com/k8s-learning/dashboard:v0.39.0
+        docker push registry.cn-beijing.aliyuncs.com/k8s-learning/dashboard:v0.39.0
         
-        docker pull registry.k8s.io/ingress-nginx/kube-webhook-certgen:v20220916-gd32f8c343
-        docker tag registry.k8s.io/ingress-nginx/kube-webhook-certgen:v20220916-gd32f8c343 registry.cn-beijing.aliyuncs.com/k8s-learning/ingress-nginx-kube-webhook-certgen:v20220916-gd32f8c343
-        docker push registry.cn-beijing.aliyuncs.com/k8s-learning/ingress-nginx-kube-webhook-certgen:v20220916-gd32f8c343
+       # docker pull registry.k8s.io/ingress-nginx/kube-webhook-certgen:v20220916-gd32f8c343
+      #  docker tag registry.k8s.io/ingress-nginx/kube-webhook-certgen:v20220916-gd32f8c343 registry.cn-beijing.aliyuncs.com/k8s-learning/ingress-nginx-kube-webhook-certgen:v20220916-gd32f8c343
+       # docker push registry.cn-beijing.aliyuncs.com/k8s-learning/ingress-nginx-kube-webhook-certgen:v20220916-gd32f8c343
         
 
       
